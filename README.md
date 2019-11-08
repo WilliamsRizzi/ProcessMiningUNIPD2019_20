@@ -13,9 +13,6 @@ Master
 
 Django backend server for machine learning on event logs.
 
-## Running in a new environment
-The docker build is available @ https://hub.docker.com/r/nirdizatiresearch/predict-python/ in any case if you prefer to setup your environment on your own you can refer the [Dockerfile](Dockerfile).
-
 ## Docker Compose
 
 On first run to setup the database, you can run:
