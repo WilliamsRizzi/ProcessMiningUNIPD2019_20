@@ -1,0 +1,30 @@
+git:
+  depth: 1
+env:
+  global:
+    - REDIS_HOST=localhost REDIS_PORT=6379
+jobs:
+  include:
+    - language: python
+      python: '3.6'
+      cache: pip
+      env:
+        - DB_USER=postgres
+        - DB_PASSWORD=""
+        - DB_NAME=travis_ci_test
+        - DB_HOST=localhost
+      services:
+        - redis-server
+        - postgresql
+      install:
+        - pip install -r requirements.txt
+        - pip install git+git://github.com/scikit-multiflow/scikit-multiflow.git#egg=scikit-multiflow
+        - pip install codecov
+      before_script:
+        - psql -c 'create database travis_ci_test;' -U postgres
+      script:
+        - python manage.py makemigrations
+        - python manage.py test
+        - coverage run --source=. manage.py test
+      after_success:
+        - codecov

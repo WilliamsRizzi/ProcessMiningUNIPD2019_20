@@ -1,0 +1,12 @@
+ignore:
+  - "tests/test_*.py"
+  - "**/tests/test_*.py"
+  - "**/**/tests/test_*.py"
+  - "./docs/**"
+  - "./cache/**"
+  - "./results/**"
+  - "./db/**"
+  - "./nirdizati_research/wsgi.py"
+  - "./scripts/**"
+  - "./src/jobs/management/commands/**.py"
+#  TEMPORARY EXCLUSIONS

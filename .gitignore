@@ -1,0 +1,33 @@
+# Created by https://www.gitignore.io/api/django
+# Edit at https://www.gitignore.io/?templates=django
+
+### Django ###
+*.log
+*.pot
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+**/migrations/*
+!**/migrations/__init__.py
+
+# End of https://www.gitignore.io/api/django
+
+db/*
+
+cache/log_cache/*
+cache/loaded_log_cache/*
+cache/labeled_log_cache/*
+!cache/log_cache/test_logs/
+dump.rdb
+
+*.icloud
+*.sav
+*.DS_Store
+*.ipynb_checkpoints/
+
+.idea/
+.coverage
+/docs/build/
+docs/source/_templates/
