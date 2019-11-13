@@ -13,23 +13,35 @@ Master
 
 Django backend server for machine learning on event logs.
 
+## Requirements
+
+install docker
+
+install pycharm enterprise, NOT community
+
+
 ## Docker Compose
 
 On first run to setup the database, you can run:
 ```bash
 docker-compose up -d db
+docker-compose run progetto_padova python3 manage.py makemigrations
 docker-compose run progetto_padova python3 manage.py migrate
 ```
 
-
-
 To run the project:
-```commandline
+```bash
 docker-compose up progetto_padova
 ```
 
-To update the project when introducing changes in the code:
-```commandline
+Create python [interpreter](https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html?_ga=2.113029511.2074599546.1573637729-943915304.1573220787#debug) with the docker composer  
+
+Create run configuration using the python interpreter
+
+
+
+Eventually, to update the project when introducing changes in the code:
+```bash
 docker-compose build
 ```
 
@@ -37,8 +49,6 @@ docker-compose build
 ### Note on CUDA enabled systems
 As this project detects when a compatible GPU is present in the system and tries to use it, please add a 
 ```CUDA_VISIBLE_DEVICES=0``` flag as an environment variable if you encounter problems.
-
-
 
 
 ## Contributors

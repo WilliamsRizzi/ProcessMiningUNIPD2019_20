@@ -8,9 +8,11 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: progettopadovadb
+    ports:
+      - 5432:5432
     volumes:
       - type: bind
-        source: ./db/ #TODO: your path goes here
+        source: ./db/
         target: /var/lib/postgresql/data/
 
   progetto_padova:
@@ -28,9 +30,9 @@ services:
       - db
     volumes:
       - type: bind
-        source: ./cache/ #TODO: your path goes here
+        source: ./cache/
         target: /predict-python/cache/
       - type: bind
-        source: ./scripts/ #TODO: your path goes here
+        source: ./scripts/
         target: /predict-python/scripts/
 
