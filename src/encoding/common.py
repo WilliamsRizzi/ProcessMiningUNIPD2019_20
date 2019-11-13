@@ -137,6 +137,5 @@ def _convert(s):
     if s is None:
         # Next activity resources
         s = '0'
-    # TODO this potentially generates collisions and in general is a clever solution for another problem
     # see https://stackoverflow.com/questions/16008670/how-to-hash-a-string-into-8-digits
     return int(hashlib.sha256(s.encode('utf-8')).hexdigest(), 16) % 10 ** 8

@@ -16,9 +16,12 @@ Django backend server for machine learning on event logs.
 ## Docker Compose
 
 On first run to setup the database, you can run:
-```commandline
-docker-compose run progetto_padova python manage.py migrate
+```bash
+docker-compose up -d db
+docker-compose run progetto_padova python3 manage.py migrate
 ```
+
+
 
 To run the project:
 ```commandline
@@ -30,40 +33,18 @@ To update the project when introducing changes in the code:
 docker-compose build
 ```
 
-## Run an instance of the project
-If you are familiar with docker-compose the [docker-compose](docker-compose.yml) file is available, otherwise if you use PyCharm as IDE run the provided configurations.
-
-Finally, from the command line you can use the following sample commands to interact with our software.
-
-Start server with
-```commandline
-python manage.py runserver
-```
-
-Run tests with one of the following
-```commandline
-python manage.py test
-./manage.py test
-```
-
-NB: always run a redis-server in background if you want your server to accept any incoming post requests!
-
-Start by running migrations and adding sample data
-```commandline
-python manage.py migrate
-python manage.py loaddata <your_file.json>
-```
 
 ### Note on CUDA enabled systems
 As this project detects when a compatible GPU is present in the system and tries to use it, please add a 
 ```CUDA_VISIBLE_DEVICES=0``` flag as an environment variable if you encounter problems.
 
 
+
+
 ## Contributors
 - [@stebranchi](https://github.com/stebranchi) Stefano Branchi
 - [@dfmchiara](https://github.com/dfmchiara) Chiara Di Francescomarino 
 - [@TKasekamp](https://github.com/TKasekamp) Tõnis Kasekamp 
-- [@mrsonuk](https://github.com/mrsonuk) Santosh Kumar
 - [@fmmaggi](https://github.com/fmmaggi) Fabrizio Maggi
 - [@WilliamsRizzi](https://github.com/WilliamsRizzi) Williams Rizzi
 - [@HitLuca](https://github.com/HitLuca) Luca Simonetto

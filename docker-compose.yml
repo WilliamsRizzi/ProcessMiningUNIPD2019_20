@@ -5,37 +5,32 @@ services:
     image: postgres
     restart: unless-stopped
     environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: progettopadovadb
     volumes:
       - type: bind
-        source: /Users/Brisingr/Documents/Fbk/nirdizati_research/predict-python/db/
+        source: ./db/ #TODO: your path goes here
         target: /var/lib/postgresql/data/
 
   progetto_padova:
     build: .
     command: python3 manage.py progetto_padova
     environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_NAME=${DB_NAME}
-      - DB_HOST=db
-      - DB_PORT=5432
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: progettopadovadb
+      DB_HOST: db
+      DB_PORT: 5432
     depends_on:
       - db
     volumes:
       - type: bind
-        source: /Users/Brisingr/Documents/Fbk/nirdizati_research/predict-python/cache/loaded_log_cache/
-        target: /predict-python/cache/loaded_log_cache/
+        source: ./cache/ #TODO: your path goes here
+        target: /predict-python/cache/
       - type: bind
-        source: /Users/Brisingr/Documents/Fbk/nirdizati_research/predict-python/cache/labeled_log_cache/
-        target: /predict-python/cache/labeled_log_cache/
-      - type: bind
-        source: /Users/Brisingr/Documents/Fbk/nirdizati_research/predict-python/cache/log_cache/
-        target: /predict-python/cache/log_cache/
-      - type: bind
-        source: /Users/Brisingr/Documents/Fbk/nirdizati_research/predict-python/cache/model_cache/
-        target: /predict-python/cache/model_cache/
+        source: ./scripts/ #TODO: your path goes here
+        target: /predict-python/scripts/
+
