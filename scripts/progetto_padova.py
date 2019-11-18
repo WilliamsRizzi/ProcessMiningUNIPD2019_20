@@ -8,8 +8,9 @@ from src.explanation.explanation import explanation
 from src.explanation.models import Explanation, ExplanationTypes
 from src.hyperparameter_optimization.models import HyperparameterOptimization, HyperparameterOptimizationMethods, \
     HyperOptAlgorithms, HyperOptLosses
-from src.jobs.job_creator import get_prediction_method_config
+from src.jobs.job_creator import get_prediction_method_config, check_predictive_model_not_overwrite, set_model_name
 from src.jobs.models import Job, JobStatuses, JobTypes
+from src.jobs.tasks import save_models
 from src.labelling.models import Labelling
 from src.logs.log_service import create_log
 from src.predictive_model.classification.models import ClassificationMethods
@@ -97,6 +98,11 @@ def progetto_padova():
         _init_clusterer(JOB.clustering, train_df),
         JOB
     )
+
+    if JOB.create_models:
+        check_predictive_model_not_overwrite(JOB)
+        set_model_name(JOB)
+        save_models(model_split, JOB)
 
     # predict
     data_df = pd.concat([train_df, test_df])

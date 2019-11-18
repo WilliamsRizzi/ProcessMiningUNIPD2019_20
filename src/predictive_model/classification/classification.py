@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 def classification(training_df: DataFrame, test_df: DataFrame, clusterer: Clustering, job: Job) -> (dict, dict):
     """main classification entry point
 
-    train and tests the classifier using the provided data
+    trains and tests the classifier using the provided data
 
     :param clusterer:
     :param training_df: training DataFrame
