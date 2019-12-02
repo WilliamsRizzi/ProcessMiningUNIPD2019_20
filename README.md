@@ -21,17 +21,11 @@ install pycharm enterprise, NOT community
 
 
 ## Docker Compose
-
+Please follow the [instructions in the video](https://youtu.be/gmxGOpjh2g0)
 On first run to setup the database, you can run:
 ```bash
 docker-compose up -d db
-docker-compose run progetto_padova python3 manage.py makemigrations
-docker-compose run progetto_padova python3 manage.py migrate
-```
-
-To run the project:
-```bash
-docker-compose up progetto_padova
+docker-compose run progetto_padova bash -c "python3 manage.py makemigrations; python3 manage.py migrate"
 ```
 
 Create python [interpreter](https://www.jetbrains.com/help/pycharm/using-docker-compose-as-a-remote-interpreter.html?_ga=2.113029511.2074599546.1573637729-943915304.1573220787#debug) with the docker composer  
