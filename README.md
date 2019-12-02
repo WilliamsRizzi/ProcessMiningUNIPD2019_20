@@ -21,7 +21,7 @@ install pycharm enterprise, NOT community
 
 
 ## Docker Compose
-Please follow the [instructions in the video](https://youtu.be/gmxGOpjh2g0)
+Please follow the [instructions in the video](https://youtu.be/MC2XpJFHZAA)
 On first run to setup the database, you can run:
 ```bash
 docker-compose up -d db
