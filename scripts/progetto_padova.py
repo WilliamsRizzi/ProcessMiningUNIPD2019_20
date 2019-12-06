@@ -108,6 +108,8 @@ def progetto_padova():
     data_df = pd.concat([train_df, test_df])
     results = MODEL[JOB.predictive_model.predictive_model][ModelActions.PREDICT.value](JOB, data_df)
 
+    results_with_probs = MODEL[JOB.predictive_model.predictive_model][ModelActions.PREDICT_PROBA.value](JOB, data_df)
+
     # lime
     exp = Explanation.objects.get_or_create(
         type=ExplanationTypes.LIME.value,
