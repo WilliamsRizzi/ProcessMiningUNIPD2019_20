@@ -15,7 +15,7 @@ from src.labelling.models import Labelling
 from src.logs.log_service import create_log
 from src.predictive_model.classification.models import ClassificationMethods
 from src.predictive_model.models import PredictiveModel, PredictiveModels
-from src.split.models import Split, SplitTypes
+from src.split.models import Split, SplitTypes, SplitOrderingMethods
 from src.split.splitting import get_train_test_log
 
 import pandas as pd
@@ -30,6 +30,17 @@ def progetto_padova():
     JOB = Job.objects.get_or_create(
         status=JobStatuses.CREATED.value,
         type=JobTypes.PREDICTION.value,
+        # split=Split.objects.get_or_create(  # this creates the split of the log
+        #             type=SplitTypes.SPLIT_SINGLE.value,
+        #             original_log=create_log(  # this imports the log
+        #                 import_log(BASE_DIR + RELATIVE_TRAIN_PATH),
+        #                 RELATIVE_TRAIN_PATH,
+        #                 BASE_DIR,
+        #                 import_in_cache=False
+        #             ),
+        #             splitting_method=SplitOrderingMethods.SPLIT_TEMPORAL.value,
+        #             test_size=0.2
+        #         )[0],
         split=Split.objects.get_or_create(  # this creates the split of the log
             type=SplitTypes.SPLIT_DOUBLE.value,
             train_log=create_log(  # this imports the log
