@@ -9,7 +9,7 @@ def explain(lime_exp: Explanation, training_df, test_df, explanation_target=1):
     model = joblib.load(lime_exp.predictive_model.model_path)
     # get the actual explanation
     explainer = lime.lime_tabular.LimeTabularExplainer(
-        training_df.drop(['trace_id', 'label'], 1).values,
+        training_df.drop(['trace_id', 'label'], 1).as_matrix(),
         feature_names=list(training_df.drop(['trace_id', 'label'], 1).columns.values),
         categorical_features=[i for i in range(len(list(training_df.drop(['trace_id', 'label'], 1).columns.values)))],
         verbose=True,
