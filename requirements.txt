@@ -27,7 +27,7 @@ h5py==2.9.0
 Sphinx==1.8.4
 sphinx-rtd-theme==0.4.3
 sphinx-autodoc-typehints==1.6.0
-codecov==2.0.15
+codecov==2.0.16
 pylint ==2.2.2
 django-extensions
 django-model-utils
