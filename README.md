@@ -1,7 +1,8 @@
 # Predict python
 
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.io/nirdizati-research/predict-python.svg)](http://hits.dwyl.io/nirdizati-research/predict-python)
+
+This is the example repository for the student's final project in the Process Mining course @ UNIPD for the academic year 2019/2020
 
 Master
 
